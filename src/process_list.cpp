@@ -14,12 +14,13 @@ void process_list(Scan &myScan)
   cout << "> got list command \n" << endl;
   //myScan.doScan();  // this command here is optional.
   myScan.trlist(intlst,sizeof(intlst)/sizeof(int),10,listSize,errCode);
+  cout << "Compressed list size:" << listSize << endl;
+  cout << "errCode:" << errCode << endl;
+  cout << "Expanded List Size:" << myScan.sizlst(intlst,listSize) << endl;
+
   for (auto i=zero; i < listSize ;++i ) {
     cout << intlst[i] << endl;
   } // end for //
-  cout << "listSize:" << listSize << endl;
-  cout << "errCode:" << errCode << endl;
-  cout << "Size of the list:" << myScan.sizlst(intlst,listSize) << endl;
   // Testing the sizlst function
   if (errCode == 1) {
     int iplist,next; // variables used to test trxlst() method                         
