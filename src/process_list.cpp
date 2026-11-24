@@ -8,12 +8,14 @@
 
 void process_list(Scan &myScan)
 {
-  int intlst[100],errCode; // variables used to test the trlist() method
+  constexpr unsigned int workingArraySize = 100;
+  int intlst[workingArraySize],errCode; // variables used to test the trlist() method
   positiveInt listSize, zero=0; 
+  int nAll = 10;
   
   cout << "> got list command \n" << endl;
   //myScan.doScan();  // this command here is optional.
-  myScan.trlist(intlst,sizeof(intlst)/sizeof(int),10,listSize,errCode);
+  myScan.trlist(intlst,workingArraySize,nAll,listSize,errCode);
   cout << "Compressed list size:" << listSize << endl;
   cout << "errCode:" << errCode << endl;
   cout << "Expanded List Size:" << myScan.sizlst(intlst,listSize) << endl;
